@@ -22,7 +22,7 @@ Takes a single positional argument: a chrom file. Converts the chromfile to bed6
 
 ## 1.3 pymakeMap.py
 
-Usage `pymakeMap.py -gff GFF_INPUT -p PREFIX -f FEATURE -k KEY -o OUTPUT_CHROM``
+Usage `pymakeMap.py -gff GFF_INPUT -p PREFIX -f FEATURE -k KEY -o OUTPUT_CHROM`
 
 gff parser, converts to chrom format. Since chrom requires non redundant datasets, a fasta file or a clus file can be used to filter sequences to retain.
 
