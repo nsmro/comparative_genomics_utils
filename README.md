@@ -2,7 +2,7 @@
 
 This is a repository which comprises a bunch of information and scripts that I think can be useful for comparative genomics analyses:
 
-Some of these scripts are part of different publications and are either in bitbucket repos or in the supplemet of papers, I just wanted to centralize some of the most reusable resources by theme (e.g. microsynteny, orthology) 
+Some of these scripts are part of different publications and are either in bitbucket repos or in the supplement of papers, I just wanted to centralize some of the most reusable resources by theme (e.g. microsynteny, orthology) 
 
 
 
