@@ -284,7 +284,7 @@ elif args.report == 'short':
 elif 'list' in args.report:
     sys.stderr.write(f'The {args.block_type} blocks are printed to stdout.\n')
     if args.report == 'clusters_list':
-        print_clusters_list(args.clusters_id, args.node_names, species_map)
+        print_clusters_list(args.multi_species_file, args.node_names, species_map)
     else:
-        print_blocks_list(args.block_list, args.node_names, idx_map)
+        print_blocks_list(args.blocks_file, args.node_names, idx_map)
 
