@@ -269,17 +269,13 @@ if len(args.block_type) > 1 and args.report != "short":
         for {args.report} require either ONLY total, ONLY ancestral or ONLY novel")
     sys.exit()
 
-BLOCKS = "Parahoxozoa.m_2.35.len3.ol0.5.synt"
-MULTISPECIES = "Parahoxozoa.m_2.35.len3.ol0.5.clusters"
-NODE_LS = ["Parahoxozoa", "Nephrozoa"]
-
 
 speciestree = ete3.Tree(args.species_tree, format=1)
 node_ls = [clade(nodename, speciestree) for nodename in args.node_names]
 idx_map, species_map = parse_block_info(args.blocks_file, args.multi_species_file)
 
 for node in node_ls:
-    node.block_content(node, species_map, 2)
+    node.block_content(species_map, 2)
 
 if 'tree' in args.report:
     print_tree(args.node_names, speciestree)
