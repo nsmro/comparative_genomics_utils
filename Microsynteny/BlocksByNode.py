@@ -274,7 +274,7 @@ MULTISPECIES = "Parahoxozoa.m_2.35.len3.ol0.5.clusters"
 NODE_LS = ["Parahoxozoa", "Nephrozoa"]
 
 
-speciestree = ete3.Tree(args.tree, format=1)
+speciestree = ete3.Tree(args.species_tree, format=1)
 node_ls = [clade(nodename, speciestree) for nodename in args.node_names]
 idx_map, species_map = parse_block_info(args.blocks_file, args.multi_species_file)
 
