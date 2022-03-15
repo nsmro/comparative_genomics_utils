@@ -90,9 +90,9 @@ The aim of this script is to filter multi-species blocks based on which taxonomi
 
 The following arguments can be used:
 
-* **-c, --multi_species_file**: output of the MicroSynteny tool, tsv file. Contains mapping of block_ids to multi-specie blocks. I mostly used the ".clusters" extension.
+* **-c, --clusters_id**: output of the MicroSynteny tool, tsv file. Contains mapping of block_ids to multi-specie blocks. I mostly used the ".clusters" extension.
 
-* **-b, --blocks**: the synt file, output of the MicroSynteny tool, tsv file. 
+* **-b, --block_list**: the synt file, output of the MicroSynteny tool, tsv file. 
 
 * **-s, --species_tree**: Tree where the species PREFIX (as stated in the chrom files) are the leaves. Should be in newick format with node names, e.g`(((D:0.723274,F:0.567784)E:0.067192,(B:0.279326,H:0.756049)B:0.807788);`. While you *can* build such a tree from scratch, I'd recommend using [NCBI's Taxonomy browser to sketch the tree](https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi) and then adjust it with [Mesquite](https://www.mesquiteproject.org/) according to the phylogenetic studies you trust the most. Polytomies are allowed.
 
@@ -100,7 +100,7 @@ The following arguments can be used:
 
 * **-m, --species_threshold**: Minimum number n of species per clade for determining if a block was present in a given node (for novel blocks, requires *m* species in at least two ingroups, and no species in outgroup. for ancestral/inherited blocks, requires *m* species in at least two ingroups, or *m* species in one ingroup and *m*  in the outgroup. By default, m = 2, considering that the monophyly of syntenic blocks isn't a reasonable assumption (see [this paper from Winter et *al*.](https://doi.org/10.1093/nar/gkw843)).
 
-* **-r, --report**: type of report that should be printed to STDOUT
+* **-r, --report**: type of report that should be printed to STDOUT. Multiple options can be specified.
   
   * **short**: number of blocks per node (default)
   
