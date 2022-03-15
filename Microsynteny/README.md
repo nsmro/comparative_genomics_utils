@@ -52,7 +52,7 @@ List of parameters:
 
 *example command*
 
-`pymakeMap.py -gff HOMSA_example.gff -p HOMSA -f CDS -k Name -o HOMSA_example.chrom``
+`pymakeMap.py -gff HOMSA_example.gff -p HOMSA -f CDS -k Name -o HOMSA_example.chrom`
 
 *example input gff*
 
