@@ -12,7 +12,3 @@ Here are a bunch of online ressources that I found useful when learning/teaching
 * Grant Sanderson's (3Blue1Brown) [YouTube channel](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw), in particular the series about Calculus and Linear Algebra. Explanatory math videos
 
 
-
-d
-
-
