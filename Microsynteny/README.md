@@ -2,8 +2,6 @@ These are some scripts intended to deal with microsynteny files (Microsynteny to
 
 For an example of a complete microsynteny run see [this page](https://github.com/nsmro/Syntenic_density_and_transitions/blob/main/Detailed%20methods/04.%20Microsynteny%20pipeline.md) 
 
-
-
 # 1. List of the tools
 
 ## 1.1 bed2chrom.sh
@@ -48,8 +46,6 @@ List of parameters:
   
   * **-s, --suffix**: suffix found in the accessions of the fasta but absent of the gff, e.g. _1 (if you generated the proteins using transdecoder, for example). Use only if `-r fasta` and `-F` options are used
 
-
-
 *example command*
 
 `pymakeMap.py -gff HOMSA_example.gff -p HOMSA -f CDS -k Name -o HOMSA_example.chrom`
@@ -79,8 +75,6 @@ What this script does is shuffle the accessions columns of a chrom file, and ret
 Input can be either a spece delimited list of files provided as posiitonal arguments, a newline-delimited list of chrom files piped to STDIN, or a file containing a newline delimited list of chrom files as positional argument. For the first two cases, the `-f` argument should be "chrom", for the third one, it should be "list".
 
 The `-n` argument can be used to specify the number of independant chrom shuffling that should be performed (default is 1). the `-o`  argument is used to specify the ouput folder (if no folder is specified, shuffled chrom files are saved in the current working directory)
-
-
 
 ## 1.5 <u>BlocksByNode</u>.py
 
@@ -120,8 +114,6 @@ The following arguments can be used:
   
   * **ancestral**: only the blocks inherited from an older node
 
-
-
 ## 1.6 make_synteny_table_emapper.py
 
 This is to create a table summarizing the information about blocks, tidy format (one row per block).
@@ -135,8 +127,6 @@ The following arguments are required
 * **-c, --clusters_file**: multi-species file (clusters), output of the MicroSynteny tool
 
 * **-o, --output**: name of the output file (default: annotated_synteny.tsv, in the current working directory)
-
-
 
 The tidy table has the following fields:
 
@@ -158,8 +148,6 @@ The tidy table has the following fields:
 
 * **nog_name_ls**: comma-delimited list of NOG names (same order as accessions)
 
-
-
 ## 1.7 evolclust_prep.py
 
 This is to prepare input files for [evolclust](https://github.com/Gabaldonlab/EvolClust). While it is possible to use the same orthology file as the Microsynteny tool, it's not optimal. While the MicroSynteny tool performs best with a finer grained orthology (e.g. the phylogenetic hierarchical orthogroups of [OrthoFinder](https://github.com/davidemms/OrthoFinder)), evolclust performs best with a coarser grained orthology (e.g. the homologs outputted by [HomoMCL](https://github.com/willpett/homomcl)).
@@ -174,7 +162,19 @@ This requires three arguments:
 
 This returns three files. One **mcl** file (families, one line per family.) One **lst** file, where accessions are all renamed according to the evolclust format. One **pickle** file (HIGHEST_PROTOCOL), which contains a python dict (accessions of the **lst** file are mapped to original accessions)
 
+## 1.8 evolclust_to_synt.py
 
+This is to convert the [evolclust](https://github.com/Gabaldonlab/EvolClust) output to a synt/clusters file format, to filter blocks using scripts like Blocksbynode. Requires pickle file containing dict of aliases (created by evolclust_prep.py).
+
+Argument are:
+
+* **-c, --chrom_folder**: folder yhere the chrom files are located, will glob files woth chrom extension
+
+* **-e,--evolclust_results**: the "cluster_families.complemented.txt" evolclust creates
+
+* **-a,--alias_dict**: pickle file created by evolclust_prep.py
+
+* **-o, --output**: name of the output files. One file wth synt extension and one file with clusters extension will be created
 
 # 2. Description of internal formats
 
@@ -199,8 +199,6 @@ ADIVA    ADIVA_GSADVT00000004001    HG380758    +    8892   �
 ADIVA    ADIVA_GSADVT00000005001    HG380758    +    10638    12990
 ```
 
-
-
 ## 2.2 clus format
 
 **clus** is a format of orthogroups, with a varying number of fields. The first field is the orthogroup name, the second contains the number of proteins within the orthogroup, the third field and onwards contain accessions. See the Orthology folder to create clus files.
@@ -210,8 +208,6 @@ ADIVA    ADIVA_GSADVT00000005001    HG380758    +    10638   
 ```
 N0.HOG0000007    2    AURAU_Seg1367.3    EUPSC_cluster_18415
 ```
-
-
 
 ## 2.3 MicroSynteny output
 
@@ -240,5 +236,3 @@ The synt fields are:
 The multi species block format contains information about how the clustering of blocks into multi-species blocks (i.e orthologous blocks). This format has at least 2 tab-separated fields, but there's no maximal number of fields in a row.
 
 The first field is the multi-species block-id (unique within a given multi-species file). The second field and onward comprise teh block_ids (as found in the associated synt file)
-
-
